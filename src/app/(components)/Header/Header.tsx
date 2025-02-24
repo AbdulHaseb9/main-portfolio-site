@@ -36,7 +36,7 @@ export const Header = () => {
         {/* Social Links */}
         <div className="flex items-center gap-x-4 md:gap-x-7">
           <div className="flex gap-x-2 md:gap-x-4">
-            {socialLinks.map((social) => (
+            {socialLinks.slice(0, 2).map((social) => (
               <Link
                 key={social.name}
                 href={social.path}
