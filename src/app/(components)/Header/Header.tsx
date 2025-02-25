@@ -4,27 +4,40 @@ import { Container } from "@/components/Container";
 import { usePathname } from "next/navigation";
 import { routes, socialLinks } from "@/routes";
 import { HiOutlineBars3BottomRight } from "react-icons/hi2";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Header = () => {
   const pathname = usePathname();
   const [sideNav, setSideNav] = useState(false);
+  const [bgHeader, setBgHeader] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", () =>
+        setBgHeader(window.pageYOffset > 0),
+      );
+    }
+  }, []);
+
+  console.log(bgHeader);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-10">
-      <Container type="header" className="flex justify-between items-center">
+    <header
+      className={`fixed top-0 right-0 left-0 z-10 ${bgHeader ? "bg-third" : ""}`}
+    >
+      <Container type="header" className="flex items-center justify-between">
         {/* Name & Navigation Links*/}
         <div className="flex items-center gap-x-28">
           <h1 className="text-2xl font-semibold md:text-3xl">
             Haseeb <span className="text-yellow">Sheikh</span>
           </h1>
           {/* Links */}
-          <nav className="space-x-4 hidden lg:block">
+          <nav className="hidden space-x-4 lg:block">
             {routes.map((route) => (
               <Link
                 key={route.name}
                 href={route.path}
-                className={`font-semibold text-lg hover:text-yellow ${
+                className={`hover:text-yellow text-lg font-semibold ${
                   pathname === route.path ? "text-yellow" : ""
                 }`}
               >

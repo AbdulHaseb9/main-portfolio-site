@@ -8,14 +8,16 @@ export const Hero = () => {
   return (
     <Container
       type="header"
-      className="h-screen w-full flex items-center justify-between"
+      className="h-screen w-full items-center justify-between space-y-6 py-20 lg:flex"
     >
       {/* Left Side */}
-      <div className="w-1/2 space-y-4">
-        <h3 className="text-5xl">I'm</h3>
-        <h1 className="text-gray text-7xl">Abdul Haseeb Sheikh</h1>
+      <div className="w-full space-y-4 lg:w-1/2">
+        <h3 className="text-2xl lg:text-5xl">I'm</h3>
+        <h1 className="text-gray text-4xl font-extrabold tracking-wider lg:text-7xl">
+          Abdul Haseeb Sheikh
+        </h1>
         <hr className="text-yellow w-36" />
-        <p className="w-96">
+        <p className="lg:w-96">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed eius
           repudiandae nostrum libero illo temporibus aut, deleniti saepe error
           sequi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
@@ -23,9 +25,9 @@ export const Hero = () => {
         </p>
       </div>
       {/* Right Side */}
-      <div className="w-1/2 flex flex-col items-end space-y-4">
+      <div className="w-full flex-col items-end space-y-4 text-start lg:flex lg:w-1/2">
         <h3 className="text-gray text-2xl">Services</h3>
-        <h2 className="text-gray text-4xl text-end">
+        <h2 className="text-gray text-4xl lg:text-end">
           Let's build quality product in programming and design, with my
           service.
         </h2>
@@ -37,17 +39,19 @@ export const Hero = () => {
               target="_blank"
               title={social.name}
             >
-              <social.icon className="text-4xl bg-third text-yellow p-2 rounded-full hover:bg-yellow hover:text-white" />
+              <social.icon className="bg-third text-yellow hover:bg-yellow rounded-full p-2 text-4xl hover:text-white" />
             </Link>
           ))}
         </div>
       </div>
-      <div className="-z-20 bg-third p-7 rounded-full absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        <Image
-          src={profile}
-          alt="Profile Image"
-          className="w-96 h-96 -rotate-2 rounded-full object-cover"
-        />
+      <div className="flex justify-center">
+        <div className="bg-third top-1/2 left-1/2 -z-20 w-60 rounded-full px-8 lg:absolute lg:w-auto lg:-translate-x-1/2 lg:-translate-y-1/2 lg:transform lg:p-7">
+          <Image
+            src={profile}
+            alt="Profile Image"
+            className="h-60 w-64 -rotate-2 rounded-full object-cover lg:h-96 lg:w-96"
+          />
+        </div>
       </div>
     </Container>
   );
