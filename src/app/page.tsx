@@ -1,6 +1,10 @@
-import { Container } from "@/components/Container";
-import { Hero } from "./(components)";
+import { Hero, Services } from "./(components)";
 
 export default function Home() {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <Services />
+    </>
+  );
 }
