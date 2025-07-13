@@ -1,3 +1,9 @@
+import About from "./components/About";
+
 export default function Home() {
-  return <div>Hello World</div>;
+  return (
+    <main className="px-20 py-14">
+      <About />
+    </main>
+  );
 }
